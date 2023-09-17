@@ -1,0 +1,45 @@
+@import "/src/variables.scss";
+
+.rowposter {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.rowimg {
+  border-radius: 16px;
+  max-height: 100px;
+  object-fit: contain;
+  width: 100%;
+  box-sizing: content-box;
+  transition: transform 450ms;
+  margin-right: 7px;
+  overflow: hidden;
+}
+
+.rowimg:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.rowimg:hover > p {
+  color: $main-yellow;
+}
+
+.largeposter {
+  max-height: 300px;
+}
+
+.rowposter::-webkit-scrollbar {
+  display: none;
+}
+
+.film-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-block: 4px;
+  max-height: 55px;
+}
+
+.vote-title {
+  margin-block: 4px;
+}

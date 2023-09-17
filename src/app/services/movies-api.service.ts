@@ -18,4 +18,18 @@ export class MoviesApiService {
       `${this.apiURL}/trending/all/week?api_key=${this.keyAPIURL}`
     );
   }
+
+  //API cho Movie
+  movieListAPI(): Observable<any> {
+    return this.http.get<any[]>(
+      `${this.apiURL}/trending/movie/day?api_key=${this.keyAPIURL}`
+    );
+  }
+
+  //API cho Movie
+  TvShowsListAPI(): Observable<any> {
+    return this.http.get<any[]>(
+      `${this.apiURL}/trending/tv/day?api_key=${this.keyAPIURL}`
+    );
+  }
 }

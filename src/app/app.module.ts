@@ -9,6 +9,7 @@ import { TvshowComponent } from './components/tvshow/tvshow.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     TvshowComponent,
     DetailComponent,
     MoviesComponent,
+    MovieCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [MoviesApiService],
