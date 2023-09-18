@@ -29,6 +29,7 @@ export class MovieCardComponent implements OnInit {
       case 'tvshows':
         this.service.TvShowsListAPI().subscribe((data) => {
           this.typeList = data.results;
+          console.log(data);
         });
         break;
 

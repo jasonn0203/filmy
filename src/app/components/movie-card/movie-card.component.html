@@ -10,7 +10,8 @@
 
             </ng-container>
 
-            <p class="film-title text-center text-xl-left">{{program.original_title}}</p>
+            <p class="film-title text-center text-xl-left">{{program.original_title ? program.original_title :
+                program.original_name}}</p>
             <p class="vote-title text-center text-xl-left">Voting : <i class="fa-solid fa-star"
                     style="color: #feb13d;"></i>
                 {{ program.vote_average.toFixed(1) }}
