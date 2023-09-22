@@ -1,5 +1,5 @@
 <!-- navbar  -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
     <a class="navbar-brand" routerLink="home">
         <img src="../assets/img/filmy-logo.png" class="filmy-logo" alt="">
     </a>
@@ -19,6 +19,9 @@
             <li class="nav-item" [routerLinkActive]="['active']">
                 <a class="nav-link custom-text-nav" routerLink="tvshows">TV Shows</a>
             </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link custom-text-nav" routerLink="casts">Casts</a>
+            </li>
         </ul>
 
         <!-- Search -->
@@ -35,3 +38,103 @@
 <!----- end  -->
 
 <router-outlet></router-outlet>
+
+
+<!-- Footer  -->
+
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class=" mx-0 mt-5">
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: #161415; border-top: 2px dotted  #feb13d;">
+
+        <div class="container">
+
+            <section class="mt-5">
+
+                <div class="row text-center d-flex justify-content-center pt-5">
+
+                    <div class="col-md-2">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a routerLink="home" class="text-white">Home</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h6 class="text-uppercase  font-weight-bold">
+                            <a routerLink="movies" class="text-white">Movies</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a routerLink="tvshows" class="text-white">TV Shows</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="#!" class="text-white">Help</a>
+                        </h6>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="#!" class="text-white">Contact</a>
+                        </h6>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <hr class="my-5" />
+
+
+            <section class="mb-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <img class="filmy-logo" src="../assets/img/filmy-logo.png" alt="">
+                        <p>
+                            Basic Film Streaming Website @.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Text -->
+
+            <!-- Section: Social -->
+            <section class="text-center mb-5">
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                    <i class="fab fa-github"></i>
+                </a>
+            </section>
+            <!-- Section: Social -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.5)">
+            © 2023 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">Huỳnh Nhật Quân ft. Đỗ Đăng Nhật</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+</div>
+<!-- End of .container -->

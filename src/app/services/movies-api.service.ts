@@ -32,4 +32,36 @@ export class MoviesApiService {
       `${this.apiURL}/trending/tv/day?api_key=${this.keyAPIURL}`
     );
   }
+
+  // API cho trang chi tiet
+  MovieDetailAPI(id: any) {
+    return this.http.get<any[]>(
+      `${this.apiURL}/movie/${id}?api_key=${this.keyAPIURL}`
+    );
+  }
+
+  // API cho video cua phim
+  MovieVideoAPI(id: any) {
+    return this.http.get<any>(
+      `${this.apiURL}/movie/${id}/videos?api_key=${this.keyAPIURL}`
+    );
+  }
+  // API cho dien vien cua phim
+  MovieCastAPI(id: any) {
+    return this.http.get<any>(
+      `${this.apiURL}/movie/${id}/credits?api_key=${this.keyAPIURL}`
+    );
+  }
+
+  // API cho dien vien
+  CastDetailAPI(person_id: number) {
+    return this.http.get<any>(
+      `${this.apiURL}/person/${person_id}?api_key=${this.keyAPIURL}`
+    );
+  }
+  CastListAPI() {
+    return this.http.get<any>(
+      `${this.apiURL}/person/popular/?api_key=${this.keyAPIURL}`
+    );
+  }
 }

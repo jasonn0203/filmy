@@ -22,14 +22,14 @@ export class MovieCardComponent implements OnInit {
       case 'movies':
         this.service.movieListAPI().subscribe((data) => {
           this.typeList = data.results;
-          console.log(data);
+          console.log(data, 'data movie list #');
         });
         break;
 
       case 'tvshows':
         this.service.TvShowsListAPI().subscribe((data) => {
           this.typeList = data.results;
-          console.log(data);
+          console.log(data, 'data tvshow list #');
         });
         break;
 

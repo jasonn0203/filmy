@@ -41,3 +41,24 @@ a {
   font-weight: bold;
   font-size: 24px;
 }
+
+.basic_hover:hover {
+  transition: 0.35s all cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 0.8;
+}
+
+.hidden-on-mobile {
+  display: none;
+}
+.bg-main {
+  background-color: $main-yellow;
+}
+
+.yellow_text {
+  color: $main-yellow;
+}
+.cast_name {
+  color: $main-yellow;
+  font-weight: bold;
+  font-size: 32px;
+}

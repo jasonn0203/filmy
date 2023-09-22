@@ -1,0 +1,105 @@
+@import "/src/variables.scss";
+
+.poster_img {
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 390px;
+  min-height: 250px;
+  border-radius: 8px;
+  transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.star_poster {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 22px;
+  color: white;
+  background-color: $main-yellow;
+  //   border-radius: 50%;
+  font-weight: bold;
+  -webkit-clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.text_film_info {
+  color: $main-yellow;
+  font-weight: bold;
+}
+
+.wrap-element {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+
+.wrapped-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.big_title {
+  color: $main-yellow;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+.yellow_hover:hover {
+  box-shadow: 9px 1px 27px -6px $main-yellow;
+  -webkit-box-shadow: 9px 1px 27px -6px $main-yellow;
+  -moz-box-shadow: 9px 1px 27px -6px $main-yellow;
+
+  cursor: pointer;
+}
+
+.text-truncate-two-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Đặt số dòng cần hiển thị */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f6d365;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right bottom,
+    rgba(246, 211, 101, 1),
+    rgba(253, 160, 133, 1)
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(
+    to right bottom,
+    rgba(246, 211, 101, 1),
+    rgba(253, 160, 133, 1)
+  );
+}

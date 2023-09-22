@@ -1,1 +1,98 @@
-<p>detail works!</p>
+<div class=" container  px-5">
+    <div class="row">
+
+
+        <!-- Film/ TVShows info -->
+        <div class="col-md-9 mt-4">
+
+            <!-- Title -->
+            <h2 class="big_title">{{detailResult.original_title}}</h2>
+
+            <div class="row  justify-content-center">
+                <div class="col-md-4 ">
+                    <!-- Poster -->
+                    <div class="position-relative d-md-block  d-flex justify-content-center align-items-center">
+                        <img class="poster_img yellow_hover"
+                            src="https://image.tmdb.org/t/p/original/{{detailResult.poster_path ? detailResult.poster_path : detailResult.backdrop_path}}" />
+
+                        <p class="star_poster">4.8</p>
+                    </div>
+                </div>
+                <!-- Info -->
+                <div class="col-md-8 mt-2 mt-md-0">
+                    <div class="d-flex flex-column" style="font-size: 18px;">
+                        <p> <span class="text_film_info">Country</span> :
+                            <ng-container
+                                *ngFor="let country of detailResult.production_countries; let lastCountry = last">
+                                {{ country.name }}
+                                <ng-container *ngIf="!lastCountry"> & </ng-container>
+                            </ng-container>
+                        <p><span class="text_film_info">Year</span> : {{detailResult.release_date.split("-")[0]}}</p>
+                        <p><span class="text_film_info">Genres</span> :
+                            <ng-container *ngFor="let genre of detailResult.genres; let lastGenres = last">
+                                {{ genre.name }}
+                                <ng-container *ngIf="!lastGenres"> , </ng-container>
+                            </ng-container>
+                        </p>
+                        <p><span class="text_film_info">Release Date</span> : {{detailResult.release_date}}</p>
+                        <p><span class="text_film_info">Length</span> : {{detailResult.runtime}} minutes</p>
+
+                    </div>
+                    <a class="btn basic_hover" style="background-color: #feb13d; color: black;" href="#">Watch Movie
+                    </a>
+                </div>
+            </div>
+            <!-- Description -->
+            <div class="my-2 my-md-5">
+                <h4 class="yellow_text">Description</h4>
+                <p class="text-light opacity-75 lh-lg ">
+                    {{detailResult.overview}}
+                </p>
+            </div>
+
+            <div class="wrap-element rounded-3 yellow_hover">
+                <iframe class="wrapped-iframe" [src]="videoResult" frameborder="0" gesture="media"
+                    allow="encrypted-media" allowfullscreen></iframe>
+
+
+            </div>
+        </div>
+        <!-- Film/ TVShows Cast -->
+
+        <div class="col-md-3 mt-4 pe-0">
+            <h2 class="big_title">Starring</h2>
+
+            <!-- Actor item -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-6" *ngFor="let cast of movieCastResult ; let i=index">
+                        <div class="d-flex align-items-center justify-content-center">
+
+                            <img [src]="cast.profile_path ? 'https://image.tmdb.org/t/p/original/' + cast.profile_path : noCastAvatar"
+                                class="rounded-circle mb-2 mx-auto yellow_hover"
+                                style="width: 75px;height: 100px; object-fit: cover;" alt="Avatar"
+                                [routerLink]="['/casts', cast.id]" />
+
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-between" style="min-height: 75px;">
+                            <h5 class="mb-2 text-center mt-auto text-truncate-two-lines tooltip-test"
+                                title="{{cast.original_name}}">
+                                <strong>{{cast.original_name}}</strong>
+                            </h5>
+                            <p class="text-muted text-center mt-auto">Actor <span class="badge"
+                                    style="background-color: #feb13d;">PRO</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>

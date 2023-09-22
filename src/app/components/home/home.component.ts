@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
       //Slice de lay ra 5 ket qua dau tien sau khi sort
       highestVoteBannerData = data.results.slice(0, 5); //results la bien api tra ra
       this.bannerData = highestVoteBannerData;
-      console.log(highestVoteBannerData);
     });
   }
 }
