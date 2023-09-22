@@ -1,14 +1,17 @@
 <div class="container">
     <div class="row">
-        <div class="fb-profile my-4">
+        <div
+            class="d-flex flex-md-row flex-column align-items-center justify-content-between  fb-profile my-4 cast_bg p-2 rounded-4">
 
-            <img align="left" class="fb-image-lg rounded-4 mr-4 yellow_hover"
+            <img class="fb-image-lg rounded-2 mr-4 yellow_hover p-0"
                 src="https://image.tmdb.org/t/p/original/{{castDetailResult.profile_path }}"
                 alt=" Profile image example" />
 
-            <div class="fb-profile-text cast_name text-center">
-                <h1>{{castDetailResult.name}}</h1>
+            <div class="fb-profile-text text-white fw-bold text-center ">
+                <h1 style="font-size: 54px;">{{castDetailResult.name}}</h1>
             </div>
+
+            <p>Rating Points : {{castDetailResult.popularity}}</p>
 
 
         </div>
@@ -24,7 +27,7 @@
                 <div class="tabbable-line">
                     <ul class="nav nav-tabs  ">
                         <li class="active">
-                            <a href="#tab_default_1" data-toggle="tab">
+                            <a class="text-decoration-none" href="#tab_default_1" data-toggle="tab">
                                 About {{castDetailResult.name}} </a>
                         </li>
 
@@ -69,7 +72,8 @@
                             </div>
                             <div class="form-group">
                                 <label class="yellow_text">Date of Birth:</label>
-                                <p> {{castDetailResult.birthday}}</p>
+                                <p> {{castDetailResult.birthday}} ({{ calculateAge(castDetailResult.birthday) }} yrs
+                                    old)</p>
                             </div>
                             <div class="form-group">
                                 <label class="yellow_text">Personal Homepage :</label>
