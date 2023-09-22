@@ -9,8 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MovieCardComponent implements OnInit {
   typeList: any = [];
 
-  // Biến để trữ giá trị loại card muốn truyền vào
+  currentPage: number = 1; // gan gia tri page dau tien
+
+  // Biến để lưu giá trị loại card muốn truyền vào
   @Input() type!: string;
+
+  total_pages!: number;
   constructor(private service: MoviesApiService) {}
 
   ngOnInit(): void {
@@ -18,25 +22,34 @@ export class MovieCardComponent implements OnInit {
   }
 
   getProgramTypeList() {
+    this.loadPageData(this.currentPage); // Load data
+  }
+
+  loadPageData(page: number) {
     switch (this.type) {
       case 'movies':
-        this.service.movieListAPI().subscribe((data) => {
+        this.service.movieListAPI(page).subscribe((data) => {
           this.typeList = data.results;
+          this.total_pages = data.total_pages;
           console.log(data, 'data movie list #');
         });
         break;
 
       case 'tvshows':
-        this.service.TvShowsListAPI().subscribe((data) => {
+        this.service.TvShowsListAPI(page).subscribe((data) => {
           this.typeList = data.results;
+          this.total_pages = data.total_pages;
           console.log(data, 'data tvshow list #');
         });
         break;
 
       default:
         console.log('No type available!');
-
         break;
     }
+  }
+  pageChanged(page: number) {
+    this.currentPage = page;
+    this.loadPageData(this.currentPage);
   }
 }

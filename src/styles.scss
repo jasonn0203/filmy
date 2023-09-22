@@ -62,3 +62,30 @@ a {
   font-weight: bold;
   font-size: 32px;
 }
+.yellow_hover:hover {
+  box-shadow: 9px 1px 27px -6px $main-yellow;
+  -webkit-box-shadow: 9px 1px 27px -6px $main-yellow;
+  -moz-box-shadow: 9px 1px 27px -6px $main-yellow;
+
+  cursor: pointer;
+}
+.ngx-pagination .current {
+  background-color: $main-yellow !important;
+  border-radius: 12px;
+}
+a:not([href]):not([class]):hover {
+  color: $main-yellow;
+  text-decoration: none;
+}
+
+.pagination {
+  &-next,
+  &-previous {
+    color: $main-yellow;
+    font-weight: bold;
+  }
+}
+.ngx-pagination a,
+.ngx-pagination button {
+  border-radius: 12px !important;
+}

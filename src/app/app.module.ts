@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { CastDetailComponent } from './components/cast/cast-detail/cast-detail.component';
 import { CastComponent } from './components/cast/cast.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,12 @@ import { CastComponent } from './components/cast/cast.component';
     CastDetailComponent,
     CastComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgxPaginationModule,
+  ],
   providers: [MoviesApiService],
   bootstrap: [AppComponent],
 })

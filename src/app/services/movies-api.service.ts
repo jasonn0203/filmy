@@ -20,16 +20,16 @@ export class MoviesApiService {
   }
 
   //API cho Movie
-  movieListAPI(): Observable<any> {
+  movieListAPI(page: number): Observable<any> {
     return this.http.get<any[]>(
-      `${this.apiURL}/trending/movie/day?api_key=${this.keyAPIURL}`
+      `${this.apiURL}/trending/movie/day?api_key=${this.keyAPIURL}&page=${page}`
     );
   }
 
   //API cho Movie
-  TvShowsListAPI(): Observable<any> {
+  TvShowsListAPI(page: number): Observable<any> {
     return this.http.get<any[]>(
-      `${this.apiURL}/trending/tv/day?api_key=${this.keyAPIURL}`
+      `${this.apiURL}/trending/tv/day?api_key=${this.keyAPIURL}&page=${page}`
     );
   }
 
