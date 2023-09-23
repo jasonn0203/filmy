@@ -15,7 +15,7 @@ export class CastDetailComponent implements OnInit {
     private router: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    let getCastId = this.router.snapshot.paramMap.get('id');
+    let getCastId = this.router.snapshot.paramMap.get('cast_id');
     console.log(getCastId);
 
     this.getCastDetail(getCastId);
@@ -33,14 +33,14 @@ export class CastDetailComponent implements OnInit {
     const birthDate = new Date(birthday);
     const currentDate = new Date();
 
-    // Check if the provided date is valid
+    // Check ngay co hop le ko
     if (isNaN(birthDate.getTime())) {
       return null;
     }
 
     const age = currentDate.getFullYear() - birthDate.getFullYear();
 
-    // Adjust age if the birthday has not occurred this year yet
+    // Tinh tuoi ( neu chua toi birthday thi - 1)
     if (
       currentDate.getMonth() < birthDate.getMonth() ||
       (currentDate.getMonth() === birthDate.getMonth() &&

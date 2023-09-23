@@ -44,4 +44,15 @@
   margin-block: 4px;
 }
 
-// Pagination
+.filter_tab {
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.active-tab {
+  background-color: $main-yellow;
+  color: black;
+}
+.active-tab > i {
+  color: black !important;
+}

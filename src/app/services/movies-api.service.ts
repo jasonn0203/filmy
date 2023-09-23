@@ -33,13 +33,18 @@ export class MoviesApiService {
     );
   }
 
-  // API cho trang chi tiet
+  // API cho trang chi tiet phim
   MovieDetailAPI(id: any) {
-    return this.http.get<any[]>(
+    return this.http.get<any>(
       `${this.apiURL}/movie/${id}?api_key=${this.keyAPIURL}`
     );
   }
-
+  // API cho trang chi tiet tvsshow
+  TVShowDetailAPI(id: any) {
+    return this.http.get<any>(
+      `${this.apiURL}/tv/${id}?api_key=${this.keyAPIURL}`
+    );
+  }
   // API cho video cua phim
   MovieVideoAPI(id: any) {
     return this.http.get<any>(
@@ -53,15 +58,22 @@ export class MoviesApiService {
     );
   }
 
+  // API cho dien vien cua tvshows
+  TVShowCastAPI(id: any) {
+    return this.http.get<any>(
+      `${this.apiURL}/tv/${id}/credits?api_key=${this.keyAPIURL}`
+    );
+  }
+
   // API cho dien vien
   CastDetailAPI(person_id: number) {
     return this.http.get<any>(
       `${this.apiURL}/person/${person_id}?api_key=${this.keyAPIURL}`
     );
   }
-  CastListAPI() {
+  CastListAPI(page: number) {
     return this.http.get<any>(
-      `${this.apiURL}/person/popular/?api_key=${this.keyAPIURL}`
+      `${this.apiURL}/person/popular/?api_key=${this.keyAPIURL}&page=${page}`
     );
   }
 }

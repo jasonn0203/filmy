@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesApiService } from './../../services/movies-api.service';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -15,7 +16,13 @@ export class MovieCardComponent implements OnInit {
   @Input() type!: string;
 
   total_pages!: number;
-  constructor(private service: MoviesApiService) {}
+  isHighestVoteActive: boolean = false;
+  isLowestVoteActive: boolean = false;
+
+  isASCsort: boolean = false;
+  isDESCsort: boolean = false;
+
+  constructor(private service: MoviesApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.getProgramTypeList();
@@ -51,5 +58,42 @@ export class MovieCardComponent implements OnInit {
   pageChanged(page: number) {
     this.currentPage = page;
     this.loadPageData(this.currentPage);
+  }
+
+  // Hàm để xác định trạng thái active cho tab Highest Vote
+  activateHighestVoteTab() {
+    this.isHighestVoteActive = !this.isHighestVoteActive;
+    this.isLowestVoteActive = false;
+  }
+
+  // Hàm để xác định trạng thái active cho tab Lowest Vote
+  toggleVoteSortASC() {
+    this.isASCsort = !this.isASCsort;
+    this.isLowestVoteActive = !this.isLowestVoteActive;
+    this.isHighestVoteActive = false;
+    this.filterByVoteASC();
+  }
+
+  toggleVoteSortDESC() {
+    this.isDESCsort = !this.isDESCsort;
+    this.isHighestVoteActive = !this.isHighestVoteActive;
+    this.isLowestVoteActive = false;
+    this.filterByVoteDESC();
+  }
+
+  filterByVoteASC() {
+    this.typeList = this.typeList.sort((a: any, b: any) => {
+      return this.isASCsort
+        ? a.vote_average - b.vote_average
+        : b.vote_average - a.vote_average;
+    });
+  }
+
+  filterByVoteDESC() {
+    this.typeList = this.typeList.sort((a: any, b: any) => {
+      return this.isDESCsort
+        ? b.vote_average - a.vote_average
+        : a.vote_average - b.vote_average;
+    });
   }
 }

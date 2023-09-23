@@ -13,14 +13,24 @@ export class CastComponent implements OnInit {
   castListResult: any = [];
   noCastAvatar: string =
     'https://th.bing.com/th/id/OIP.AbGafkazjc_S1pZPh0B9cQHaIm?pid=ImgDet&rs=1';
+
+  currentPage: number = 1; // gan gia tri page dau tien
+  total_pages!: number;
+
   ngOnInit(): void {
-    this.getCastList();
+    this.loadPageData(this.currentPage);
   }
 
-  getCastList() {
-    return this.service.CastListAPI().subscribe((data) => {
+  loadPageData(page: number) {
+    return this.service.CastListAPI(page).subscribe((data) => {
       console.log(data, 'cast list #');
+      this.total_pages = data.total_pages;
       this.castListResult = data.results;
     });
+  }
+
+  pageChanged(page: number) {
+    this.currentPage = page;
+    this.loadPageData(this.currentPage);
   }
 }

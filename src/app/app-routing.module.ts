@@ -12,10 +12,10 @@ const routes: Routes = [
   { path: 'movies', component: MoviesComponent },
   { path: 'tvshows', component: TvshowComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'movies/:id', component: DetailComponent },
-  { path: 'tvshows/:id', component: DetailComponent },
+
   { path: 'casts', component: CastComponent },
-  { path: 'casts/:id', component: CastDetailComponent },
+  { path: 'casts/:cast_id', component: CastDetailComponent },
+  { path: ':type/:id', component: DetailComponent },
   { path: '**', component: HomeComponent },
 ];
 
