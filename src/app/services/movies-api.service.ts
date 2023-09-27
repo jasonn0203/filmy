@@ -20,16 +20,60 @@ export class MoviesApiService {
   }
 
   //API cho Movie
-  movieListAPI(): Observable<any> {
+  movieListAPI(page: number): Observable<any> {
     return this.http.get<any[]>(
-      `${this.apiURL}/trending/movie/day?api_key=${this.keyAPIURL}`
+      `${this.apiURL}/trending/movie/day?api_key=${this.keyAPIURL}&page=${page}`
     );
   }
 
   //API cho Movie
-  TvShowsListAPI(): Observable<any> {
+  TvShowsListAPI(page: number): Observable<any> {
     return this.http.get<any[]>(
-      `${this.apiURL}/trending/tv/day?api_key=${this.keyAPIURL}`
+      `${this.apiURL}/trending/tv/day?api_key=${this.keyAPIURL}&page=${page}`
+    );
+  }
+
+  // API cho trang chi tiet phim
+  MovieDetailAPI(id: any) {
+    return this.http.get<any>(
+      `${this.apiURL}/movie/${id}?api_key=${this.keyAPIURL}`
+    );
+  }
+  // API cho trang chi tiet tvsshow
+  TVShowDetailAPI(id: any) {
+    return this.http.get<any>(
+      `${this.apiURL}/tv/${id}?api_key=${this.keyAPIURL}`
+    );
+  }
+  // API cho video cua phim
+  MovieVideoAPI(id: any) {
+    return this.http.get<any>(
+      `${this.apiURL}/movie/${id}/videos?api_key=${this.keyAPIURL}`
+    );
+  }
+  // API cho dien vien cua phim
+  MovieCastAPI(id: any) {
+    return this.http.get<any>(
+      `${this.apiURL}/movie/${id}/credits?api_key=${this.keyAPIURL}`
+    );
+  }
+
+  // API cho dien vien cua tvshows
+  TVShowCastAPI(id: any) {
+    return this.http.get<any>(
+      `${this.apiURL}/tv/${id}/credits?api_key=${this.keyAPIURL}`
+    );
+  }
+
+  // API cho dien vien
+  CastDetailAPI(person_id: number) {
+    return this.http.get<any>(
+      `${this.apiURL}/person/${person_id}?api_key=${this.keyAPIURL}`
+    );
+  }
+  CastListAPI(page: number) {
+    return this.http.get<any>(
+      `${this.apiURL}/person/popular/?api_key=${this.keyAPIURL}&page=${page}`
     );
   }
 }
