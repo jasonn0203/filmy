@@ -25,8 +25,14 @@ export class MoviesApiService {
       `${this.apiURL}/trending/movie/day?api_key=${this.keyAPIURL}&page=${page}`
     );
   }
-
   //API cho Movie
+  movieSimilarListAPI(id: number): Observable<any> {
+    return this.http.get<any[]>(
+      `${this.apiURL}/movie/${id}/similar?api_key=${this.keyAPIURL}`
+    );
+  }
+
+  //API cho TV
   TvShowsListAPI(page: number): Observable<any> {
     return this.http.get<any[]>(
       `${this.apiURL}/trending/tv/day?api_key=${this.keyAPIURL}&page=${page}`

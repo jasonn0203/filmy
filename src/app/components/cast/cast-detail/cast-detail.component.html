@@ -3,9 +3,9 @@
         <div
             class="d-flex flex-md-row flex-column align-items-center justify-content-between  fb-profile my-4 cast_bg p-2 rounded-4">
 
-            <img class="fb-image-lg rounded-2 mr-4 yellow_hover p-0"
-                src="https://image.tmdb.org/t/p/original/{{castDetailResult.profile_path }}"
-                alt=" Profile image example" />
+            <img class="fb-image-lg rounded-2 mr-4 yellow_hover p-0" [src]=" castDetailResult.profile_path
+                ? 'https://image.tmdb.org/t/p/original/' + castDetailResult
+                : noCastAvatar" alt=" Profile image example" />
 
             <div class="fb-profile-text text-white fw-bold text-center ">
                 <h1 style="font-size: 54px;">{{castDetailResult.name}}</h1>
@@ -37,9 +37,11 @@
                         <div class="tab-pane active" id="tab_default_1">
                             <h4 class="cast_name">Biography</h4>
 
-                            <p class="lh-lg">
+                            <p *ngIf="castDetailResult.biography" ;else #noBio class="lh-lg">
                                 {{castDetailResult.biography}}
                             </p>
+
+                            <p #noBio>No information.</p>
                             <h4 class="cast_name">Also Known As</h4>
                             <p>
 

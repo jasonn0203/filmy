@@ -96,7 +96,7 @@
                     cast.profile_path
                       ? 'https://image.tmdb.org/t/p/original/' + cast.profile_path
                       : noCastAvatar
-                  " class="rounded-circle mb-2 mx-auto yellow_hover" style="
+                    " class="rounded-circle mb-2 mx-auto yellow_hover" style="
                     width: 75px;
                     height: 100px;
                     object-fit: cover; " alt="Avatar" />
@@ -117,4 +117,21 @@
             </div>
         </div>
     </div>
-</div>
+
+
+
+    <!-- Similar film suggestion -->
+
+    <div class="container my-5">
+        <h2>Similar Film of <span class="yellow_text big_title">{{detailResult.original_title}}</span></h2>
+        <div class="card-container">
+            <div class="card" *ngFor="let similar of similarFilmResult" [routerLink]="['/movies', similar.id]">
+                <img [src]="'https://image.tmdb.org/t/p/original/' + similar.poster_path" alt="Card Image">
+                <div class="card-content text-truncate-two-lines">
+                    <h2>{{similar.original_title}}</h2>
+                </div>
+            </div>
+
+        </div>
+
+    </div>

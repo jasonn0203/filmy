@@ -1,8 +1,9 @@
 import { MoviesApiService } from './../../services/movies-api.service';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CastDetailComponent } from '../cast/cast-detail/cast-detail.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-detail',
@@ -14,6 +15,7 @@ export class DetailComponent implements OnInit {
   // -------------------------------------------------
   detailResult: any;
   TVDetailResult: any;
+  similarFilmResult: any;
 
   videoResult!: SafeResourceUrl;
 
@@ -28,19 +30,34 @@ export class DetailComponent implements OnInit {
     private service: MoviesApiService,
     private router: ActivatedRoute,
     private sanitizer: DomSanitizer //thu vien de danh dau url la an toan ( loai tru loi 'unsafe url context')
-  ) {}
-
-  ngOnInit(): void {
-    // Lay type va id tung loai
-    const contentType = this.router.snapshot.paramMap.get('type');
-    const id = this.router.snapshot.paramMap.get('id');
-
-    // dkien
-    switch (contentType) {
-      case 'movies':
+  ) {
+    // Default
+    this.router.params.subscribe((params) => {
+      const id = params['id'];
+      if (id) {
         this.getMovieDetail(id);
         this.getMovieVideo(id);
         this.getMovieCast(id);
+        this.getSimilarFilm(id);
+      }
+    });
+  }
+
+  ngOnInit(): void {
+    // Lay type va id tung loai
+
+    const contentType = this.router.snapshot.paramMap.get('type');
+    const id = this.router.snapshot.paramMap.get('id');
+    const getMovieData = () => {
+      this.getMovieDetail(id);
+      this.getMovieVideo(id);
+      this.getMovieCast(id);
+      this.getSimilarFilm(id);
+    };
+    // dkien
+    switch (contentType) {
+      case 'movies':
+        getMovieData();
         break;
 
       case 'tvshows':
@@ -115,6 +132,13 @@ export class DetailComponent implements OnInit {
       console.log(actorData, 'tvcast data');
 
       this.tvCastResult = actorData;
+    });
+  }
+
+  getSimilarFilm(id: any) {
+    return this.service.movieSimilarListAPI(id).subscribe((data) => {
+      console.log(data.results, 'similar film#');
+      this.similarFilmResult = data.results;
     });
   }
 }

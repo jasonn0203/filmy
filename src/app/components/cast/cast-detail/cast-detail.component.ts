@@ -10,6 +10,9 @@ import { MoviesApiService } from 'src/app/services/movies-api.service';
 export class CastDetailComponent implements OnInit {
   castDetailResult: any;
 
+  noCastAvatar: string =
+    'https://th.bing.com/th/id/OIP.AbGafkazjc_S1pZPh0B9cQHaIm?pid=ImgDet&rs=1';
+
   constructor(
     private service: MoviesApiService,
     private router: ActivatedRoute
