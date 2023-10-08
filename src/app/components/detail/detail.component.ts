@@ -3,7 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CastDetailComponent } from '../cast/cast-detail/cast-detail.component';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-detail',

@@ -4,7 +4,7 @@
             class="d-flex flex-md-row flex-column align-items-center justify-content-between  fb-profile my-4 cast_bg p-2 rounded-4">
 
             <img class="fb-image-lg rounded-2 mr-4 yellow_hover p-0" [src]=" castDetailResult.profile_path
-                ? 'https://image.tmdb.org/t/p/original/' + castDetailResult
+                ? 'https://image.tmdb.org/t/p/original/' + castDetailResult.profile_path
                 : noCastAvatar" alt=" Profile image example" />
 
             <div class="fb-profile-text text-white fw-bold text-center ">

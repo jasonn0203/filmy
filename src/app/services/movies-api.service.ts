@@ -82,4 +82,13 @@ export class MoviesApiService {
       `${this.apiURL}/person/popular/?api_key=${this.keyAPIURL}&page=${page}`
     );
   }
+
+  // search
+  SearchMulti(data: any): Observable<any> {
+    console.log(data, 'movie query #');
+
+    return this.http.get(
+      `${this.apiURL}/search/multi?api_key=${this.keyAPIURL}&query=${data.query}`
+    );
+  }
 }

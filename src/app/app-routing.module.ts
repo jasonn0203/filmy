@@ -1,3 +1,4 @@
+import { SearchComponent } from './components/search/search.component';
 import { CastComponent } from './components/cast/cast.component';
 import { CastDetailComponent } from './components/cast/cast-detail/cast-detail.component';
 import { DetailComponent } from './components/detail/detail.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'movies', component: MoviesComponent },
   { path: 'tvshows', component: TvshowComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'search', component: SearchComponent },
 
   { path: 'casts', component: CastComponent },
   { path: 'casts/:cast_id', component: CastDetailComponent },
