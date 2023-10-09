@@ -9,8 +9,11 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class SearchComponent implements OnInit {
   searchResults!: any[];
+  query!: string;
 
-  constructor(private searchService: SearchService) {}
+  constructor(private searchService: SearchService) {
+    this.searchResults = [];
+  }
 
   ngOnInit(): void {
     this.searchResults = this.searchService.getSearchResults();

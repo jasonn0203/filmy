@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'movies', component: MoviesComponent },
   { path: 'tvshows', component: TvshowComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'search', component: SearchComponent },
+  { path: 'search/:query', component: SearchComponent },
 
   { path: 'casts', component: CastComponent },
   { path: 'casts/:cast_id', component: CastDetailComponent },

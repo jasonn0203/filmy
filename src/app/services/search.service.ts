@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SearchService {
-  private searchResults: any[] = [];
+  searchResults: any;
 
   setSearchResults(results: any[]) {
     this.searchResults = results;

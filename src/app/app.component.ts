@@ -24,10 +24,10 @@ export default class AppComponent implements OnInit {
   submitSearch() {
     this.service.SearchMulti(this.searchForm.value).subscribe((data) => {
       console.log(data.results, '# search results');
-
       this.searchResult = data.results;
       this.searchService.setSearchResults(data.results);
-      this.router.navigate(['/search/']);
+      this.router.navigate(['/search/', this.searchForm.value.query]);
+      this.searchForm.reset();
     });
   }
 }
