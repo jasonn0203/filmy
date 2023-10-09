@@ -23,12 +23,16 @@ export class HomeComponent implements OnInit {
       let highestVoteBannerData: any;
       console.log(data, '*_data for banner');
       //Loc ket qua banner de chi lay 3 banner co voting cao nhat
-      data.results.sort(
-        (lowestVote: any, highestVote: any) =>
-          highestVote.vote_average - lowestVote.vote_average
-      );
+      // const sortBanner = data.results.sort(
+      //   (lowestVote: any, highestVote: any) =>
+      //     highestVote.vote_average - lowestVote.vote_average
+      // );
+      const dataResults = data.results;
+      const totalResults = dataResults.length;
+      const randomBanner = Math.floor(Math.random() * totalResults);
+
       //Slice de lay ra 5 ket qua dau tien sau khi sort
-      highestVoteBannerData = data.results.slice(0, 5); //results la bien api tra ra
+      highestVoteBannerData = dataResults.slice(randomBanner, randomBanner + 5); //lấy khoảng từ random -> random + 5 ( 5 phần tử)
       this.bannerData = highestVoteBannerData;
     });
   }

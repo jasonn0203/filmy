@@ -9,13 +9,17 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class SearchComponent implements OnInit {
   searchResults!: any[];
-  query!: string;
 
-  constructor(private searchService: SearchService) {
-    this.searchResults = [];
+  constructor(
+    private searchService: SearchService,
+    private router: ActivatedRoute
+  ) {
+    this.router.params.subscribe(() => {
+      this.searchResults = this.searchService.getSearchResults();
+    });
   }
 
   ngOnInit(): void {
-    this.searchResults = this.searchService.getSearchResults();
+    //this.searchResults = this.searchService.getSearchResults();
   }
 }

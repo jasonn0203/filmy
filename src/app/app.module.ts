@@ -15,6 +15,7 @@ import { CastComponent } from './components/cast/cast.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
+import { SearchService } from './services/search.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { SearchComponent } from './components/search/search.component';
     NgxPaginationModule,
     ReactiveFormsModule,
   ],
-  providers: [MoviesApiService],
+  providers: [MoviesApiService, SearchService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
