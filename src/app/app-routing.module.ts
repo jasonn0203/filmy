@@ -1,3 +1,5 @@
+import { LogInComponent } from './components/log-in/log-in/log-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
 import { SearchComponent } from './components/search/search.component';
 import { CastComponent } from './components/cast/cast.component';
 import { CastDetailComponent } from './components/cast/cast-detail/cast-detail.component';
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'movies', component: MoviesComponent },
   { path: 'tvshows', component: TvshowComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'login', component: LogInComponent },
   { path: 'search/:query', component: SearchComponent },
 
   { path: 'casts', component: CastComponent },

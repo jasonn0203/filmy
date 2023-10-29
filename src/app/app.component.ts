@@ -10,16 +10,31 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export default class AppComponent implements OnInit {
+  userName!: string;
   searchResult: any;
   searchForm = new FormGroup({
     query: new FormControl(null),
   });
+  isLogin: string = 'non-login';
   constructor(
     private service: MoviesApiService,
     private searchService: SearchService,
     private router: Router
   ) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.router.events.subscribe((val: any) => {
+      if (val.url) {
+        if (localStorage.getItem('user')) {
+          let userStorage = localStorage.getItem('user');
+          let userData = userStorage && JSON.parse(userStorage);
+          this.userName = userData.name;
+          this.isLogin = 'login';
+        } else {
+          this.isLogin = 'non-login';
+        }
+      }
+    });
+  }
 
   submitSearch() {
     const searchQuery = this.searchForm.value.query;
@@ -30,5 +45,9 @@ export default class AppComponent implements OnInit {
       this.router.navigate(['/search/', searchQuery]);
       this.searchForm.reset();
     });
+  }
+  logOut() {
+    localStorage.removeItem('user');
+    this.router.navigate(['home']);
   }
 }

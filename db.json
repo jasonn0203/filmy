@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "name": "Jason Huỳnh",
+      "email": "jasonn0203@gmail.com",
+      "pw": "1234",
+      "id": 1
+    },
+    {
+      "name": "Luke Thomas",
+      "email": "luke234@outlook.com",
+      "pw": "1234",
+      "id": 2
+    }
+  ]
+}

@@ -16,6 +16,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { SearchService } from './services/search.service';
+import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
+import { LogInComponent } from './components/log-in/log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { SearchService } from './services/search.service';
     CastDetailComponent,
     CastComponent,
     SearchComponent,
+    SignUpComponent,
+    LogInComponent,
   ],
   imports: [
     BrowserModule,
