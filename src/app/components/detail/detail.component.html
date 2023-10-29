@@ -65,7 +65,14 @@
                             {{ TVDetailResult?.number_of_episodes }} episodes
                         </p>
                     </div>
-                    <a class="btn basic_hover" style="background-color: #feb13d; color: black;" href="#">Watch Movie</a>
+                    <a class="btn basic_hover" style="background-color: #feb13d; color: black;">Watch
+                        Movie</a>
+                    <a *ngIf="isFavorite" class="btn basic_hover ms-4" style="background-color: pink; color: black;"
+                        (click)="addToFavorites(detailResult || TVDetailResult)">Added</a>
+
+                    <a *ngIf="!isFavorite" class="btn basic_hover ms-4" style="background-color: pink; color: black;"
+                        (click)="addToFavorites(detailResult || TVDetailResult)">Add to
+                        favourite</a>
                 </div>
             </div>
             <!-- Description -->

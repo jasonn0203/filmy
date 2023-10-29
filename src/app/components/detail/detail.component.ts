@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/user.service';
 import { MoviesApiService } from './../../services/movies-api.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -23,10 +24,13 @@ export class DetailComponent implements OnInit {
 
   noCastAvatar: string =
     'https://th.bing.com/th/id/OIP.AbGafkazjc_S1pZPh0B9cQHaIm?pid=ImgDet&rs=1';
+
+  isFavorite = false;
   // -------------------------------------------------
 
   constructor(
     private service: MoviesApiService,
+    private userService: UserService,
     private router: ActivatedRoute,
     private sanitizer: DomSanitizer //thu vien de danh dau url la an toan ( loai tru loi 'unsafe url context')
   ) {
@@ -71,8 +75,13 @@ export class DetailComponent implements OnInit {
     }
   }
 
+  addToFavorites(movie: any) {
+    this.userService.addToFavorites(movie, this.userService.getUser());
+    this.isFavorite = true;
+  }
+
   // GET DETAIL
-  getMovieDetail(id: any) {
+  getMovieDetail(id: any): void {
     this.service.MovieDetailAPI(id).subscribe((data) => {
       console.log(data, 'movie detail #');
       this.detailResult = data;

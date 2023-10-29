@@ -1,3 +1,4 @@
+import { FavoriteComponent } from './components/favorite/favorite/favorite.component';
 import { LogInComponent } from './components/log-in/log-in/log-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
 import { SearchComponent } from './components/search/search.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'login', component: LogInComponent },
+  { path: 'favorite', component: FavoriteComponent },
   { path: 'search/:query', component: SearchComponent },
 
   { path: 'casts', component: CastComponent },

@@ -18,6 +18,7 @@ import { SearchComponent } from './components/search/search.component';
 import { SearchService } from './services/search.service';
 import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
 import { LogInComponent } from './components/log-in/log-in/log-in.component';
+import { FavoriteComponent } from './components/favorite/favorite/favorite.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { LogInComponent } from './components/log-in/log-in/log-in.component';
     SearchComponent,
     SignUpComponent,
     LogInComponent,
+    FavoriteComponent,
   ],
   imports: [
     BrowserModule,

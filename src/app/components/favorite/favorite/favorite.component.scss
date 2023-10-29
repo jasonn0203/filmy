@@ -1,0 +1,10 @@
+.favorite-footer {
+  transition: 0.25s all ease-in-out;
+  &:hover {
+    background-color: #feb13d;
+  }
+
+  &:hover .remove-icon {
+    color: white !important;
+  }
+}
