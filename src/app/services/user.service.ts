@@ -62,9 +62,18 @@ export class UserService {
     return this.http.get(`${this.favoritesUrl}?userId=${userId}`);
   }
 
-  removeFavorite(favoriteId: number, userId: number): Observable<any> {
-    const url = `${this.favoritesUrl}/?userId=${userId}&id=${favoriteId}`;
-    return this.http.delete(url);
+  removeFavorite(favoriteId: number, userId: number) {
+    const url = `${this.favoritesUrl}/?id=${favoriteId}&userId=${userId}`;
+    this.http.delete(url).subscribe(
+      (data) => {
+        // Handle successful response (e.g., removing the favorite from the local list).
+        console.log(data);
+      },
+      (error) => {
+        // Handle errors here, e.g., show an error message to the user.
+        console.error('Error deleting favorite:', error);
+      }
+    );
   }
 
   getUser() {

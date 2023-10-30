@@ -24,15 +24,6 @@ export class FavoriteComponent implements OnInit {
 
   removeFavorite(favorite: any) {
     const userId = this.userService.getUser();
-    this.userService.removeFavorite(favorite.id, userId).subscribe(
-      () => {
-        console.log('Favorite removed');
-        // Thực hiện các công việc cần thiết sau khi xóa
-      },
-      (error) => {
-        console.error('Error removing favorite:', error);
-        // Xử lý lỗi ở đây (ví dụ: hiển thị thông báo lỗi cho người dùng)
-      }
-    );
+    this.userService.removeFavorite(favorite, userId);
   }
 }
