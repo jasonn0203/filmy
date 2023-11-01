@@ -13,17 +13,5 @@ export class FavoriteComponent implements OnInit {
     this.getFavoriteList();
   }
 
-  getFavoriteList() {
-    this.userService
-      .getFavoritesByUser(this.userService.getUser())
-      .subscribe((result) => {
-        this.favoriteResult = result;
-        console.log(result);
-      });
-  }
-
-  removeFavorite(favorite: any) {
-    const userId = this.userService.getUser();
-    this.userService.removeFavorite(favorite, userId);
-  }
+  
 }

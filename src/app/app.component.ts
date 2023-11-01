@@ -36,18 +36,5 @@ export default class AppComponent implements OnInit {
     });
   }
 
-  submitSearch() {
-    const searchQuery = this.searchForm.value.query;
-    this.service.SearchMulti(this.searchForm.value).subscribe((data) => {
-      console.log(data.results, '# search results');
-      this.searchResult = data.results;
-      this.searchService.setSearchResults(data.results);
-      this.router.navigate(['/search/', searchQuery]);
-      this.searchForm.reset();
-    });
-  }
-  logOut() {
-    localStorage.removeItem('user');
-    this.router.navigate(['home']);
-  }
+  
 }

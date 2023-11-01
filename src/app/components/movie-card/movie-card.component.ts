@@ -81,19 +81,5 @@ export class MovieCardComponent implements OnInit {
     this.filterByVoteDESC();
   }
 
-  filterByVoteASC() {
-    this.typeList = this.typeList.sort((a: any, b: any) => {
-      return this.isASCsort
-        ? a.vote_average - b.vote_average
-        : b.vote_average - a.vote_average;
-    });
-  }
-
-  filterByVoteDESC() {
-    this.typeList = this.typeList.sort((a: any, b: any) => {
-      return this.isDESCsort
-        ? b.vote_average - a.vote_average
-        : a.vote_average - b.vote_average;
-    });
-  }
+  
 }
