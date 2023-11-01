@@ -9,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 export class FavoriteComponent implements OnInit {
   favoriteResult: any;
   constructor(private userService: UserService) {}
+
+  getFavoriteList() {
+    this.userService
+      .getFavoritesByUser(this.userService.getUser())
+      .subscribe((result) => {
+        this.favoriteResult = result;
+        console.log(result);
+      });
+  }
   ngOnInit(): void {
     this.getFavoriteList();
   }
-
-  
+  removeFavorite(favorite: any) {
+    const userId = this.userService.getUser();
+    this.userService.removeFavorite(favorite, userId);
+  }
 }

@@ -66,6 +66,22 @@ export class MovieCardComponent implements OnInit {
     this.isLowestVoteActive = false;
   }
 
+  //Hàm lọc phim
+  filterByVoteASC() {
+    this.typeList = this.typeList.sort((a: any, b: any) => {
+      return this.isASCsort
+        ? a.vote_average - b.vote_average
+        : b.vote_average - a.vote_average;
+    });
+  }
+
+  filterByVoteDESC() {
+    this.typeList = this.typeList.sort((a: any, b: any) => {
+      return this.isDESCsort
+        ? b.vote_average - a.vote_average
+        : a.vote_average - b.vote_average;
+    });
+  }
   // Hàm để xác định trạng thái active cho tab Lowest Vote
   toggleVoteSortASC() {
     this.isASCsort = !this.isASCsort;
@@ -80,6 +96,4 @@ export class MovieCardComponent implements OnInit {
     this.isLowestVoteActive = false;
     this.filterByVoteDESC();
   }
-
-  
 }
